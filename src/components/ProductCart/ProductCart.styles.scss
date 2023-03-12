@@ -41,10 +41,14 @@
   
       .name {
         width: 90%;
+        padding-top: 10px;
         margin-bottom: 15px;
+        font-weight:550;
       }
   
       .price {
+        margin: 10px 10px 0 0;
+        font-weight: bold;
         width: 10%;
       }
     }

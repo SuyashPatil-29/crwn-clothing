@@ -4,10 +4,11 @@ import "./Authentication.styles.scss"
 
 
 const Authentication = ()=>{
-    return(
+    return(<div className="border-container">
         <div className="authentication-container">
             <SignInForm />
             <SignUpForm />
+        </div>
         </div>
     )
 }

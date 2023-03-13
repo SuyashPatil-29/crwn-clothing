@@ -1,6 +1,12 @@
 .authentication-container{
     display: flex;
     justify-content: space-between;
-    width: 900px;
+    max-width: 900px;
     margin: 30px auto;
+}
+.border-container{
+    padding: 15px;
+    padding-bottom: 35px;
+    border: 2px solid black;
+
 }

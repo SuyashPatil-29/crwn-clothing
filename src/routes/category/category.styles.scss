@@ -1,0 +1,18 @@
+.category-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 50px;
+}
+
+.category-outer-container{
+    padding: 15px;
+    padding-bottom: 35px;
+    border: 2px solid black;
+  }
+
+.category-title{
+    font-size: 38px;
+    margin-bottom: 28px;
+    text-decoration: underline;
+}

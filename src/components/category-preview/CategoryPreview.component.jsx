@@ -1,22 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import "./category-preview.styles.scss"
 import ProductCart from '../ProductCart/ProductCart';
+import {CategoryPreviewContainer , Preview , Title} from "./category-preview.styles.jsx"
 
 const CategoryPreview = ({title, products}) => {
     return (
-        <div className='category-preview-container'>
+        <CategoryPreviewContainer>
             <h2>
-            <Link className='title' to={title}>{title.toUpperCase()}</Link>
+            <Title style={{color: "darkblue"}} to={title}>{title.toUpperCase()}</Title>
             </h2>
-            <div className='preview'>
+            <Preview>
                {
                 products
                 .filter((_, idx)=>idx < 4)
                 .map((product)=><ProductCart key={product.id} product={product}/>)
                }
-            </div>
-        </div>
+            </Preview>
+        </CategoryPreviewContainer>
     );
 }
 

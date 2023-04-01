@@ -8,9 +8,8 @@ import "./category.styles.scss"
 const CategoryComponent = () => {
     const { category }= useParams()
     const categoriesMap = useSelector(selectCategoriesMap)
-
-
     const [products, setProducts] = useState(categoriesMap[category])
+
 
     useEffect(()=>{
         setProducts(categoriesMap[category])

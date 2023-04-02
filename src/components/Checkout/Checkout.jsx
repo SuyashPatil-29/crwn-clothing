@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../../contexts/cart.context';
 import {CheckoutItemContainer, ImageContainer, PropertySpan, Quantity, Value, Arrow, RemoveButton} from "./checkout-item.styles.jsx"
-
-
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import {addItemToCart, clearItemFromCart, removeItemFromCart} from "../../store/cart/cart.action.js"
 const Checkout = ({item}) => {
-
-    console.log(item);
 
     const {name, id, quantity, price, imageUrl} = item
 
-    const {addItemToCart, removeItemFromCart, clearItemFromCart} = useContext(CartContext)
+    const dispatch = useDispatch();
 
+    const cartItems = useSelector(selectCartItems)
 
-    const addItemHandler= ()=>addItemToCart(item)
-    const removeItemHandler= ()=>removeItemFromCart(item)
+    const addItemHandler= ()=>dispatch(addItemToCart(cartItems,item))
+    const removeItemHandler= ()=>dispatch(removeItemFromCart(cartItems,item))
+    const clearItemHandler = ()=>dispatch(clearItemFromCart(cartItems,item))
     return (            
             <CheckoutItemContainer key={id}>
             <ImageContainer>
@@ -28,7 +28,7 @@ const Checkout = ({item}) => {
               </Quantity>
 
               <PropertySpan style={{marginLeft: "17%"}}>{price}</PropertySpan>
-              <RemoveButton onClick={()=>clearItemFromCart(item)}>&#10005;</RemoveButton>
+              <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
               </CheckoutItemContainer>
     );
 }
